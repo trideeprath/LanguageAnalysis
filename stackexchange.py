@@ -11,7 +11,8 @@ import io
 
 
 
-def fetch_questions(tags=None,filename=None,page=1):
+def fetch_questions(tags=None,filename=None,page=1,write_mode="w"):
+
     """
     writes question data to csv file 
     """
@@ -20,7 +21,7 @@ def fetch_questions(tags=None,filename=None,page=1):
         tags = ['java']
     write_list = []
     for tag in tags:
-        print "+++++++++++++++++ " + tag + " +++++++++++++++++" 
+        print("+++++++++++++++++ " + tag + " +++++++++++++++++")
         questions = SITE.fetch('questions',tagged=tag,page=page)
         #json_obj  = json.dumps(questions,indent=4)
         json_obj = json.loads(json.dumps(questions))
@@ -43,18 +44,18 @@ def fetch_questions(tags=None,filename=None,page=1):
     
   
     
-    with io.open(filename, 'wb') as file:
+    with io.open(filename, write_mode) as file:
         writer = csv.writer(file)
-        writer.writerow((u'question_id',tag,u'is_answered',u'tags',u'title',u'answer_count',
-                          u'creation_date',u'score',u'link',
-                          u'view_count',u'user_id',u'reputation',u'user_type',u'display_name'))
+        writer.writerow(('question_id','language','is_answered','tags','title','answer_count',
+                          'creation_date','score','link',
+                          'view_count','user_id','reputation','user_type','display_name'))
         for row in write_list:
             try:
                 writer.writerow(row)
             except Exception as e:
                 pass
         
-    print "rows written to csv file "+ filename + " " + str(len(write_list))
+    print("rows written to csv file "+ filename + " " + str(len(write_list)))
             
     
 
