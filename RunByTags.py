@@ -14,5 +14,5 @@ if __name__ == "__main__":
     argparser.add_argument('-o', dest='OUTPUT_FILE', default='csv', help='Output file name ')
     args = argparser.parse_args()
 
-    run(args.TAG, args.QUES, args.KEYPHRASE, args.OUTPUT_FILE)
+    run.main(args.TAG, args.QUES, args.KEYPHRASE, args.OUTPUT_FILE)
 
