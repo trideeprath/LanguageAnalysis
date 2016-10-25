@@ -1,6 +1,9 @@
 
 import csv
 import pandas as pd
+import xml.etree.ElementTree
+import re
+import nltk
 
 
 def integrate_questions(file_read,file_write):
@@ -26,3 +29,58 @@ def integrate_questions(file_read,file_write):
 
 
 
+
+def parse_xml_language_similarity(file_read,file_write):
+    count = 0
+    with open(file_read,'r') as f:
+        for line in f:
+            count +=1
+            if count > 100: break
+            if "row Id" in line:
+                line = line.strip()
+                root = xml.etree.ElementTree.fromstring(line)
+                try:
+                    body = remove_tags(root.get('Body'))
+                    title = remove_tags(root.get('Title'))
+                except:
+                    continue
+
+
+def parse_xml_user_location(file_read,file_write):
+    lang_list = [' java ','python','matlab','html','c++',' c ','mysql','swift',' javascript ','sql']
+    write_list = []
+    with open(file_read,'r') as f:
+        for line in f:
+            if "row Id" in line:
+                line = line.strip()
+                root = xml.etree.ElementTree.fromstring(line)
+                try:
+                    aboutMe = remove_tags(root.get('AboutMe')).lower()
+                    location = remove_tags(root.get('Location'))
+                    for lang in lang_list:
+                        if lang in aboutMe:
+                            temp_tuple = (lang.strip(), location)
+                            write_list.append(temp_tuple)
+                except:
+                    continue
+
+    for tuple in write_list:
+        print(tuple)
+
+    with open(file_write, 'w') as mycsvfile:
+        thedatawriter = csv.writer(mycsvfile)
+        for row in write_list:
+            thedatawriter.writerow(row)
+    print(file_write)
+
+TAG_RE = re.compile(r'<[^>]+>')
+def remove_tags(text):
+    output = TAG_RE.sub('', text)
+    output = output.replace("<p>"," ")
+    output = output.replace("<", " ")
+    output = output.replace(">", " ")
+    output = output.replace("\n"," ")
+    return output
+
+parse_xml_user_location(file_read="/home/trideep/Downloads/Users.xml",
+                        file_write="/home/trideep/python_workspace/LanguageAnalysis/data/user_location.csv")

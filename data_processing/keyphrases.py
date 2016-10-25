@@ -21,9 +21,6 @@ class Keyphrase:
         if save_model == True:
             pickle.dump(self.tfidf_gen,open(fp.tfidf_model,'wb'))
 
-        #keys = self.tfidf_gen.get_keyphrases(key=1,topn=100)
-        #pprint(keys)
-
 
     def get_keyphrases(self,topn):
         id_index_dict = self.tfidf_gen.id_index_map
@@ -80,8 +77,6 @@ class tfidf_generator:
             document_map[index] = id
             id_index_map[doc_id] = index
             index = index + 1
-
-
 
         # Create Tf matrix with ngram for 1,2,3 phrases and stop words as english
         #

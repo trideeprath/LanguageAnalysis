@@ -7,8 +7,9 @@ Created on Sep 20, 2016
 import LanguageAnalysis.stackexchange as se
 import LanguageAnalysis.filepath as fp
 from LanguageAnalysis.data_processing.keyphrases import Keyphrase
+from LanguageAnalysis.data_processing.language_sim import LanguageSimilarity
 
-def main(fetch_questions=False,fetch_keyphrases=False):
+def main(fetch_questions=False,fetch_keyphrases=False,language_similarity=False):
     #tags = ['javascript','java','mysql','python',
     #        'c++','c','sql','swift','matlab','html']
     language_keyphrase_map= {}
@@ -22,10 +23,13 @@ def main(fetch_questions=False,fetch_keyphrases=False):
         language_keyphrase_map = keyphrase_gen.get_keyphrases(topn=30)
         keyphrase_gen.save_keyphrases(language_keyphrase_map,fp.question_keyphrases)
 
+    if language_similarity:
+        lang_sim = LanguageSimilarity()
+
 
 
 
 
 if __name__ == '__main__':
-    main(fetch_questions= False,fetch_keyphrases=True)
+    main(fetch_questions= False,fetch_keyphrases=False, language_similarity=True)
     pass
