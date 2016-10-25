@@ -4,27 +4,17 @@ Created on Sep 20, 2016
 @author: trideep
 '''
 
-<<<<<<< HEAD
 import LanguageAnalysis.stackexchange as se
 import LanguageAnalysis.filepath as fp
 from LanguageAnalysis.data_processing.keyphrases import Keyphrase
 from LanguageAnalysis.data_processing.language_sim import LanguageSimilarity
 
 def main(fetch_questions=False,fetch_keyphrases=False,language_similarity=False):
-=======
-import stackexchange as se
-import filepath as fp
-from data_processing.keyphrases import Keyphrase
-
-def main(tags = ['java','C'], fetch_questions=False,fetch_keyphrases=False, outfile="data/question_java+C.csv"):
->>>>>>> 13d005ad83839541ec0fe8932956ca4f03d28660
-    #tags = ['javascript','java','mysql','python',
-    #        'c++','c','sql','swift','matlab','html']
+    tags = ['javascript','java','mysql','python', 'c++','c','sql','swift','matlab','html']
     language_keyphrase_map= {}
 
-    ## Doing it for Python, SQL, c++
     if fetch_questions:
-        se.fetch_questions(page=1, tags=tags, filename=outfile,write_mode='w')
+        se.fetch_questions(page=1, tags=tags,filename=fp.question_file_integrated,write_mode='w')
 
     if fetch_keyphrases:
         keyphrase_gen = Keyphrase(integrate_data=True)
@@ -37,9 +27,5 @@ def main(tags = ['java','C'], fetch_questions=False,fetch_keyphrases=False, outf
 
 
 if __name__ == '__main__':
-<<<<<<< HEAD
     main(fetch_questions= False,fetch_keyphrases=False, language_similarity=True)
-=======
-    main(fetch_questions= True,fetch_keyphrases=False)
->>>>>>> 13d005ad83839541ec0fe8932956ca4f03d28660
     pass
