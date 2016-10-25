@@ -24,7 +24,8 @@ def main(fetch_questions=False,fetch_keyphrases=False,language_similarity=False)
 
     if language_similarity:
         lang_sim = LanguageSimilarity()
-
+        #lang_sim.start_training()
+        lang_sim.create_lang_similarty_data()
 
 if __name__ == '__main__':
     main(fetch_questions= False,fetch_keyphrases=False, language_similarity=True)

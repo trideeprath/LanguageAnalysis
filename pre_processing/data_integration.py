@@ -3,7 +3,7 @@ import csv
 import pandas as pd
 import xml.etree.ElementTree
 import re
-import nltk
+from nltk.tokenize import sent_tokenize
 
 
 def integrate_questions(file_read,file_write):
@@ -32,16 +32,22 @@ def integrate_questions(file_read,file_write):
 
 def parse_xml_language_similarity(file_read,file_write):
     count = 0
-    with open(file_read,'r') as f:
+    with open(file_read,'r') as f, open(file_write,'w') as out:
         for line in f:
             count +=1
-            if count > 100: break
+            if count %1000 == 0: print(count)
             if "row Id" in line:
                 line = line.strip()
                 root = xml.etree.ElementTree.fromstring(line)
                 try:
                     body = remove_tags(root.get('Body'))
                     title = remove_tags(root.get('Title'))
+                    body_sentences = sent_tokenize(body)
+                    title_sentences = sent_tokenize(title)
+                    for line in body_sentences:
+                        out.write(line+"\n")
+                    for line in title_sentences:
+                        out.write(line+"\n")
                 except:
                     continue
 
@@ -82,5 +88,4 @@ def remove_tags(text):
     output = output.replace("\n"," ")
     return output
 
-parse_xml_user_location(file_read="/home/trideep/Downloads/Users.xml",
-                        file_write="/home/trideep/python_workspace/LanguageAnalysis/data/user_location.csv")
+#parse_xml_user_location(file_read="/home/trideep/Downloads/Users.xml",file_write="/home/trideep/python_workspace/LanguageAnalysis/data/user_location.csv")
