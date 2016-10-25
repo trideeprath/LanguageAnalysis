@@ -29,7 +29,7 @@ class LanguageSimilarity():
 
     def create_lang_similarty_data(self):
         model = Word2Vec.load_word2vec_format(fp.w2vfilepath)
-        lang_list = ['java', 'python', 'matlab', 'html', 'c++', 'c', 'mysql', 'javascript', 'sql']
+        lang_list = ['java', 'python', 'matlab', 'html', 'c++', 'c', 'mysql','javascript', 'sql']
         '''
         for lang_o,lang_i in zip(lang_list,lang_list):
             for lan_i in lang_list:
