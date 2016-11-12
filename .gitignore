@@ -2,3 +2,5 @@
 .pydevproject
 .idea/
 *.pyc
+data/post_sentences.txt
+model/w2v_vectors.txt
