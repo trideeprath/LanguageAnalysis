@@ -4,7 +4,7 @@ import pandas as pd
 import xml.etree.ElementTree
 import re
 from nltk.tokenize import sent_tokenize
-
+lang_list = ['java', 'python', 'matlab', 'html', 'c++', 'c', 'mysql','javascript', 'sql']
 
 def integrate_questions(file_read,file_write):
     """
@@ -52,6 +52,49 @@ def parse_xml_language_similarity(file_read,file_write):
                     continue
 
 
+def parse_xml_questions(file_read, file_write):
+    count = 0
+    with open(file_read, 'r') as inp, open(file_write, 'w') as out:
+        csv_writer = csv.writer(out)
+        csv_writer.writerow(['id','post_type','language','answer_count','date'])
+        for line in inp:
+            count += 1
+            if count % 1000 == 0: print(count)
+            if "row Id" in line:
+                line = line.strip()
+                root = xml.etree.ElementTree.fromstring(line)
+                try:
+                    id = remove_tags(root.get("Id"))
+                    post_type = remove_tags(root.get("PostTypeId"))
+                    tags_text = root.get("Tags")
+                    tag_list = []
+                    if tags_text is None:
+                        tags = ""
+                    else:
+                        tags = parse_tags(tags_text).lower()
+                        tag_list = tags.split(",")
+
+                    ans_count = root.get("AnswerCount")
+                    if ans_count is None:
+                        ans_count = ""
+                    else:
+                        ans_count = remove_tags(ans_count)
+                    date = remove_tags(root.get("CreationDate"))
+                    #print(id,post_type,tags,ans_count,date)
+                    if int(post_type) == 1 and bool(set(tag_list) & set(lang_list)):
+                        lang = get_common_tag(tag_list)
+                        row = [id, post_type, lang, ans_count, date]
+                        csv_writer.writerow(row)
+                except Exception as e:
+                    print(e)
+                    continue
+
+
+def get_common_tag(tag_list):
+    for tag in tag_list:
+        if tag in lang_list:
+            return tag
+
 def parse_xml_user_location(file_read,file_write):
     lang_list = [' java ','python','matlab','html','c++',' c ','mysql','swift',' javascript ','sql']
     write_list = []
@@ -87,5 +130,12 @@ def remove_tags(text):
     output = output.replace(">", " ")
     output = output.replace("\n"," ")
     return output
+
+def parse_tags(text):
+    output = text.replace(">","")
+    output = output.replace("<", ",")
+    output = output[1:]
+    return output
+
 
 #parse_xml_user_location(file_read="/home/trideep/Downloads/Users.xml",file_write="/home/trideep/python_workspace/LanguageAnalysis/data/user_location.csv")
