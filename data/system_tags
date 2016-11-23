@@ -1,0 +1,707 @@
+{
+  "items": [
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 4630,
+      "name": "arduino"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 4202,
+      "name": "microcontroller"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 3286,
+      "name": "power-supply"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 2772,
+      "name": "voltage"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 2549,
+      "name": "led"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 2460,
+      "name": "power"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 2452,
+      "name": "transistors"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 2342,
+      "name": "op-amp"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 2155,
+      "name": "batteries"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 2108,
+      "name": "capacitor"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1952,
+      "name": "pcb"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1895,
+      "name": "current"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1867,
+      "name": "pic"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1852,
+      "name": "mosfet"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1797,
+      "name": "digital-logic"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1555,
+      "name": "resistors"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1553,
+      "name": "amplifier"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1451,
+      "name": "circuit-analysis"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1423,
+      "name": "usb"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1414,
+      "name": "sensor"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1336,
+      "name": "motor"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1332,
+      "name": "fpga"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1322,
+      "name": "voltage-regulator"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1285,
+      "name": "switches"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1282,
+      "name": "rf"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1254,
+      "name": "audio"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1245,
+      "name": "avr"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1174,
+      "name": "pcb-design"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1166,
+      "name": "ac"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1134,
+      "name": "adc"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1132,
+      "name": "transformer"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1130,
+      "name": "integrated-circuit"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1125,
+      "name": "diodes"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1122,
+      "name": "analog"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1084,
+      "name": "relay"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 1065,
+      "name": "dc"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 964,
+      "name": "pwm"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 935,
+      "name": "battery-charging"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 896,
+      "name": "vhdl"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 886,
+      "name": "c"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 840,
+      "name": "filter"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 807,
+      "name": "switch-mode-power-supply"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 792,
+      "name": "atmega"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 763,
+      "name": "dc-motor"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 746,
+      "name": "signal"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 740,
+      "name": "verilog"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 735,
+      "name": "serial"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 701,
+      "name": "bjt"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 700,
+      "name": "connector"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 688,
+      "name": "raspberry-pi"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 672,
+      "name": "i2c"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 668,
+      "name": "noise"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 655,
+      "name": "spi"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 655,
+      "name": "dc-dc-converter"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 649,
+      "name": "communication"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 644,
+      "name": "design"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 642,
+      "name": "wireless"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 636,
+      "name": "components"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 633,
+      "name": "uart"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 628,
+      "name": "stm32"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 627,
+      "name": "soldering"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 622,
+      "name": "frequency"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 620,
+      "name": "arm"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 608,
+      "name": "resistance"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 603,
+      "name": "oscillator"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 602,
+      "name": "inductor"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 602,
+      "name": "embedded"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 590,
+      "name": "antenna"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 572,
+      "name": "ground"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 569,
+      "name": "solar-cell"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 565,
+      "name": "schematics"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 563,
+      "name": "simulation"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 523,
+      "name": "bluetooth"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 517,
+      "name": "eagle"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 506,
+      "name": "identification"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 494,
+      "name": "clock"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 494,
+      "name": "electromagnetism"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 490,
+      "name": "oscilloscope"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 487,
+      "name": "current-measurement"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 482,
+      "name": "power-electronics"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 462,
+      "name": "driver"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 462,
+      "name": "lcd"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 461,
+      "name": "measurement"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 459,
+      "name": "timer"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 454,
+      "name": "voltage-divider"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 452,
+      "name": "impedance"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 449,
+      "name": "ethernet"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 449,
+      "name": "stepper-motor"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 440,
+      "name": "temperature"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 438,
+      "name": "circuit-design"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 436,
+      "name": "xilinx"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 435,
+      "name": "altium"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 432,
+      "name": "memory"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 427,
+      "name": "interrupts"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 411,
+      "name": "radio"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 411,
+      "name": "programming"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 400,
+      "name": "buck"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 396,
+      "name": "microchip"
+    },
+    {
+      "has_synonyms": false,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 396,
+      "name": "control"
+    },
+    {
+      "has_synonyms": true,
+      "is_moderator_only": false,
+      "is_required": false,
+      "count": 394,
+      "name": "multiplexer"
+    }
+  ],
+  "has_more": true,
+  "quota_max": 300,
+  "quota_remaining": 276
+}

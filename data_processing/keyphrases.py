@@ -40,8 +40,6 @@ class Keyphrase:
 
 
 
-
-
 class tfidf_generator:
 
     def __int_(self, tfidf_matrix=None, features=None, id_index_map=None,stop_words=None):

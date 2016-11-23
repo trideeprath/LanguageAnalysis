@@ -4,7 +4,9 @@ import pandas as pd
 import xml.etree.ElementTree
 import re
 from nltk.tokenize import sent_tokenize
-lang_list = ['java', 'python', 'matlab', 'html', 'c++', 'c', 'mysql','javascript', 'sql']
+from collections import defaultdict
+from collections import Counter
+lang_list = ['java', 'python', 'matlab', 'html', 'c++', 'c', 'mysql','javascript', 'sql','swift']
 
 def integrate_questions(file_read,file_write):
     """
@@ -50,6 +52,63 @@ def parse_xml_language_similarity(file_read,file_write):
                         out.write(line+"\n")
                 except:
                     continue
+
+
+def get_tags_map(file_read):
+    tag_map = {}
+    with open(file_read, 'r') as inp:
+        for line in inp:
+            if "row Id" in line:
+                line = line.strip()
+                root = xml.etree.ElementTree.fromstring(line)
+                try:
+                    id = remove_tags(root.get("Id"))
+                    tag_name = remove_tags(root.get("TagName"))
+                    count = root.get("Count")
+                    tag_map[tag_name] = count
+                except Exception as e:
+                    print(e)
+                    continue
+    return tag_map
+
+
+def get_post_tag(file_read):
+    tag_map = defaultdict(Counter)
+    for lang in lang_list:
+        tag_map[lang] = Counter()
+
+    count = 0
+    with open(file_read, 'r') as inp:
+        for line in inp:
+            if "row Id" in line:
+                count += 1
+                if count % 10000 == 0:
+                    perc = count * 100 / 32209819
+                    print(str(perc) + " % done")
+                    if perc > 20:
+                        break;
+                line = line.strip()
+                root = xml.etree.ElementTree.fromstring(line)
+                try:
+                    id = remove_tags(root.get("Id"))
+                    tags_text = root.get("Tags")
+                    tag_list = []
+                    if tags_text is None:
+                        tags = ""
+                    else:
+                        tags = parse_tags(tags_text).lower()
+                        tag_list = tags.split(",")
+                        common_list = list(set(tag_list).intersection(lang_list))
+                        if len(common_list) !=0:
+                            for lang in common_list:
+                                for tag in tag_list:
+                                    if tag not in lang_list:
+                                        tag_map[lang].update([tag])
+                except Exception as e:
+                    print(e)
+                    continue
+    return tag_map
+
 
 
 def parse_xml_questions(file_read, file_write):
@@ -136,6 +195,7 @@ def parse_tags(text):
     output = output.replace("<", ",")
     output = output[1:]
     return output
+
 
 
 #parse_xml_user_location(file_read="/home/trideep/Downloads/Users.xml",file_write="/home/trideep/python_workspace/LanguageAnalysis/data/user_location.csv")
