@@ -8,7 +8,7 @@ from pprint import pprint
 import csv
 
 
-
+from collections import Counter
 
 class Keyphrase:
 
@@ -16,27 +16,42 @@ class Keyphrase:
         di.integrate_questions(file_read=fp.question_file, file_write=fp.question_file_integrated)
         self.tfidf_gen = tfidf_generator()
 
-    def create_keyphrases(self,save_model=True):
-        self.tfidf_gen.create_tfidf_matrix(id_col='language',data_col='question_title',filename=fp.question_file_integrated)
+    def create_keyphrases(self,save_model=True, file_integrated=None, file_tfidf=None):
+        self.tfidf_gen.create_tfidf_matrix(id_col='language',data_col='body', filename=file_integrated)
         if save_model == True:
-            pickle.dump(self.tfidf_gen,open(fp.tfidf_model,'wb'))
+            pickle.dump(self.tfidf_gen, open(file_tfidf,'wb'))
 
-
-    def get_keyphrases(self,topn):
+    def get_keyphrases(self, top=1000):
         id_index_dict = self.tfidf_gen.id_index_map
-        keyphrases_dict = dict(map(lambda doc_id: (doc_id, self.tfidf_gen.get_keyphrases(key=id_index_dict[doc_id], topn=topn)), id_index_dict.keys()))
+        keyphrases_dict = dict(map(lambda doc_id: (doc_id, self.tfidf_gen.get_keyphrases(key=id_index_dict[doc_id], topn=top)), id_index_dict.keys()))
         return keyphrases_dict
 
-    def save_keyphrases(self,keyphrase_map,write_file=None):
-        with open(fp.question_keyphrases,'w') as out_file:
+    def save_keyphrases(self, keyphrase_map, write_file=None, topn=30):
+        lang_list = ['java', 'python', 'matlab', 'html', 'c++', 'c', 'mysql', 'javascript', 'sql', 'swift']
+        lang_counter = Counter()
+
+        with open(write_file,'w') as out_file:
             csv_writer = csv.writer(out_file)
             csv_writer.writerow(['language','keyphrase','tfidf'])
             for language in keyphrase_map.keys():
                 for tuple in keyphrase_map[language]:
-                    print(language,tuple[0],tuple[1])
-                    csv_writer.writerow([language,tuple[0],tuple[1]])
+                    phrase = tuple[0]
+                    valid = self.is_valid(phrase, language)
+                    if valid and lang_counter[language] < topn:
+                        lang_counter.update([language])
+                        print(language,tuple[0],tuple[1])
+                        csv_writer.writerow([language,tuple[0],tuple[1]])
 
-
+    def is_valid(self, phrase,language):
+        if language in phrase.split():
+            return False
+        if bool(set(phrase.split()) & set(['best','way','using', 'how', 'use'])):
+            return False
+        if len(phrase.split()) > 1 :
+            f_word = phrase.split()[0]
+            if f_word in phrase.split()[1:]:
+                return False
+        return True
 
 
 

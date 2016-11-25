@@ -50,8 +50,6 @@ def save_counts(file_read, file_write):
     merge.to_csv(file_write)
 
 
-
-
 if __name__ == '__main__':
     language_tags(False)
     pass

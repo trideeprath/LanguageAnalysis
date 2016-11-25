@@ -110,6 +110,50 @@ def get_post_tag(file_read):
     return tag_map
 
 
+def get_post_common_tag(file_read):
+    tag_map = defaultdict(Counter)
+    for lang in lang_list:
+        for lang_sec in lang_list:
+            if lang !=lang_sec:
+                tag_map[lang+"-"+lang_sec] = Counter()
+
+    count = 0
+    with open(file_read, 'r') as inp:
+        for line in inp:
+            if "row Id" in line:
+                count += 1
+                if count % 10000 == 0:
+                    perc = count * 100 / 32209819
+                    print(str(perc) + " % done")
+                    if perc > 50:
+                        break;
+                line = line.strip()
+                root = xml.etree.ElementTree.fromstring(line)
+                try:
+                    id = remove_tags(root.get("Id"))
+                    tags_text = root.get("Tags")
+                    tag_list = []
+                    if tags_text is None:
+                        tags = ""
+                    else:
+                        tags = parse_tags(tags_text).lower()
+                        tag_list = tags.split(",")
+                        common_list = list(set(tag_list).intersection(lang_list))
+                        if len(common_list) == 2:
+                            for tag in tag_list:
+                                if tag not in lang_list:
+                                    tag_map["-".join(common_list)].update([tag])
+                except Exception as e:
+                    print(e)
+                    continue
+
+    for lang_pair in list(tag_map.keys()):
+        counter_obj = tag_map[lang_pair]
+        if len(list(counter_obj.elements())) == 0:
+            tag_map.pop(lang_pair, None)
+
+    return tag_map
+
 
 def parse_xml_questions(file_read, file_write):
     count = 0
@@ -118,7 +162,11 @@ def parse_xml_questions(file_read, file_write):
         csv_writer.writerow(['id','post_type','language','answer_count','date'])
         for line in inp:
             count += 1
-            if count % 1000 == 0: print(count)
+            if count % 10000 == 0:
+                perc = count * 100 / 32209819
+                print(str(perc) + " % done")
+                if perc > 50:
+                    break;
             if "row Id" in line:
                 line = line.strip()
                 root = xml.etree.ElementTree.fromstring(line)
@@ -143,10 +191,56 @@ def parse_xml_questions(file_read, file_write):
                     if int(post_type) == 1 and bool(set(tag_list) & set(lang_list)):
                         lang = get_common_tag(tag_list)
                         row = [id, post_type, lang, ans_count, date]
-                        csv_writer.writerow(row)
+                        #csv_writer.writerow(row)
                 except Exception as e:
                     print(e)
                     continue
+
+
+def integrate_language_posts(file_read, file_write):
+    count = 0
+    data_map = defaultdict(list)
+    for lang in lang_list:
+        data_map[lang] = []
+    with open(file_read, 'r') as inp, open(file_write, 'w') as out:
+        csv_writer = csv.writer(out)
+        csv_writer.writerow(['language','document'])
+        for line in inp:
+            count += 1
+            if count % 10000 == 0:
+                perc = count * 100 / 32209819
+                print(str(perc) + " % done")
+                if perc > 80:
+                    break;
+            if "row Id" in line:
+                line = line.strip()
+                root = xml.etree.ElementTree.fromstring(line)
+                try:
+                    id = remove_tags(root.get("Id"))
+                    post_type = remove_tags(root.get("PostTypeId"))
+                    tags_text = root.get("Tags")
+                    body = remove_tags(root.get("Title"))
+                    tag_list = []
+                    if tags_text is None:
+                        tags = ""
+                    else:
+                        tags = parse_tags(tags_text).lower()
+                        tag_list = tags.split(",")
+                    if bool(set(tag_list) & set(lang_list)) and len(body) > 10:
+                        lang = get_common_tag(tag_list)
+                        data_map[lang].append(body)
+                        #csv_writer.writerow(row)
+                except Exception as e:
+                    #print(e)
+                    continue
+
+    with open(file_read, 'r') as inp, open(file_write, 'w') as out:
+        csv_writer = csv.writer(out)
+        csv_writer.writerow(['language', 'body'])
+        for lang in data_map:
+            all_post = " .".join(data_map[lang])
+            csv_writer.writerow([lang, all_post])
+
 
 
 def get_common_tag(tag_list):
