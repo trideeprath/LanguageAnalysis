@@ -9,6 +9,7 @@ import csv
 lang_count= {"matlab": 137756, "mysql":993268, "html": 962972, "c": 590590,
              "c++": 1351140, "java": 3097890, "python": 1612969, "javascript": 3187390, "sql": 755760, "swift" : 121459}
 
+
 def language_tags(create_data= False):
     tags_map = {}
     if create_data is True:
